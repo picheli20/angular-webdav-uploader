@@ -30,7 +30,28 @@ var path        = "upload/";
 var useHTTPS    = false;
 $rootScope.uploader = new upload(host, port, path, useHTTPS);
 ```
-#Usage Js
+#Queue example
+
+```
+<div class="uploadMenu" ng-show="root.uploader.getQueue().length != 0">
+    <div class="col-md-12" ng-click="showUploadQueued = !showUploadQueued">
+        <i class="fa fa-cloud-upload"></i>
+    </div>
+    <div ng-show="showUploadQueued" class="uploadPopup">
+        <ul style="margin: 0;">
+            <li ng-repeat="item in root.uploader.getQueue()" ng-class="{'isError' : item._status >= 300, 'isSuccess': item._status >= 200 && item._status < 300}">
+                <i class="fa" ng-class="{'fa-exclamation-circle' : item._status >= 300, 'fa-check-circle': item._status >= 200 && item._status < 300, 'fa-play-circle': item._status == 0}"></i>
+                {{item.getFileName()}}
+                <button type="button" class="btn btn-danger" ng-click="root.uploader.dequeue($index)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </li>
+        </ul>
+    </div>
+ </div>
+ ```
+
+#Usage Html
 
 ```
 <input type="file" fileread="uploader" path="file/" upload-model="uploadModel" call-back="callBack"/>
