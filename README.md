@@ -4,8 +4,8 @@ Javascript uploader using angularJS and Sara Nl.
 
 Required Lib :https://github.com/sara-nl/js-webdav-client
 
-#Content
-
+#Content Classes
+```
 Factorys:
 upload
   enqueue(file, subPath, callBack);
@@ -18,7 +18,7 @@ file
   getFileUrl()
 Directives:
   fileread
-  
+```
 #Usage Js
 
 Include uploadManager on the |rootScope| and |upload| class in the controller
