@@ -1,8 +1,5 @@
 # angular-webdav-uploader
 
-Javascript uploader using angularJS and Sara Nl.
-
-Required Lib :https://github.com/sara-nl/js-webdav-client
 
 #Content Classes
 ```
